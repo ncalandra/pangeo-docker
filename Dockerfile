@@ -1,6 +1,8 @@
 FROM python:3.7
 
-RUN pip install \
+WORKDIR /opt
+
+RUN pip install -t . \
   jupyterlab==1.2 \
   jupyterhub==1.1 \
   jupyter-server-proxy==1.2 \
