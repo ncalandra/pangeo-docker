@@ -25,4 +25,5 @@ RUN pip install \
   rasterio \
   matplotlib \
   seaborn \
-  zarr
+  zarr \
+  ipywidgets
