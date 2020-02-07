@@ -1,11 +1,6 @@
-FROM python:3.7
+FROM jupyterhub/singleuser
 
-WORKDIR /opt
-
-RUN pip install -t . \
-  jupyterlab==1.2 \
-  jupyterhub==1.1 \
-  jupyter-server-proxy==1.2 \
+RUN pip install \
   nbgitpuller==0.8 \
   dask==2.10 \
   distributed==2.10 \
