@@ -4,7 +4,7 @@ USER root
 
 RUN apt-get update && \
   apt-get install -yq --no-install-recommends \
-  build-essential
+    build-essential
 
 RUN pip install \
   nbgitpuller==0.8 \
@@ -15,4 +15,14 @@ RUN pip install \
   dask-labextension==1.1 \
   tornado==6.0.3 \
   bokeh==1.4 \
-  graphviz==0.13
+  graphviz==0.13 \
+  xarray \
+  sat-search \
+  scipy \
+  boto3 \
+  pandas \
+  geopandas \
+  rasterio \
+  matplotlib \
+  seaborn \
+  zarr
