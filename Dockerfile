@@ -27,3 +27,5 @@ RUN pip install \
   seaborn \
   zarr \
   ipywidgets
+
+RUN jupyter nbextension enable --py widgetsnbextension
