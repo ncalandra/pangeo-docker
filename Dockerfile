@@ -26,6 +26,8 @@ RUN pip install \
   matplotlib \
   seaborn \
   zarr \
-  ipywidgets==7.4.2
+  ipywidgets
 
-RUN jupyter nbextension enable --py widgetsnbextension
+RUN jupyter labextension install \
+  @jupyter-widgets/jupyterlab-manager \
+  dask-labextension
