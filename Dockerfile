@@ -26,6 +26,6 @@ RUN pip install \
   matplotlib \
   seaborn \
   zarr \
-  ipywidgets
+  ipywidgets==7.4.2
 
 RUN jupyter nbextension enable --py widgetsnbextension
