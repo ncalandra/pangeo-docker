@@ -1,5 +1,9 @@
 FROM jupyterhub/singleuser
 
+ENV GDAL_DISABLE_READDIR_ON_OPEN='YES'
+ENV CURL_CA_BUNDLE='/etc/ssl/certs/ca-certificates.crt'
+ENV CPL_VSIL_CURL_ALLOWED_EXTENSIONS='TIF'
+
 USER root
 
 RUN apt-get update && \
