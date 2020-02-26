@@ -1,16 +1,31 @@
 FROM jupyterhub/singleuser
 
+# Environment Variables for rasterio and GDAL
 ENV GDAL_DISABLE_READDIR_ON_OPEN='YES'
 ENV CURL_CA_BUNDLE='/etc/ssl/certs/ca-certificates.crt'
 ENV CPL_VSIL_CURL_ALLOWED_EXTENSIONS='TIF'
 
 USER root
 
+# Add build essential for building some python libraries
 RUN apt-get update && \
   apt-get install -yq --no-install-recommends \
     build-essential
 
-RUN pip install \
+# Configure single user jupyter lab settings
+RUN python -m pip install s3contents
+
+RUN echo $'\n\
+from s3contents import S3ContentsManager\n\
+import os\n\
+if os.environ["contents_manager_class"] == "S3ContentsManager":\n\
+  c.NotebookApp.contents_manager_class = S3ContentsManager\n\
+  c.S3ContentsManager.bucket = os.environ["s3_bucket"]\n\
+  c.S3ContentsManager.prefix = os.environ["s3_prefix"]\n\
+' >> /home/jovyan/.jupyter/jupyter_notebook_config.py
+
+# Install packages used for python development
+RUN python -m pip install \
   nbgitpuller==0.8 \
   dask==2.11.0 \
   distributed==2.11 \
@@ -32,6 +47,7 @@ RUN pip install \
   zarr \
   ipywidgets
 
+# Install jupyter lab extensions
 RUN jupyter labextension install \
   @jupyter-widgets/jupyterlab-manager \
   dask-labextension
