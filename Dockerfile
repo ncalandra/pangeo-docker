@@ -24,6 +24,9 @@ if "contents_manager_class" in os.environ and os.environ["contents_manager_class
   c.S3ContentsManager.prefix = os.environ["s3_prefix"]\n\
 ' >> /home/jovyan/.jupyter/jupyter_notebook_config.py
 
+# Conda Installs :(
+RUN conda install -y -c conda-forge pynio pyngl
+
 # Install packages used for python development
 RUN python -m pip install \
   nbgitpuller==0.8 \
@@ -51,6 +54,3 @@ RUN python -m pip install \
 RUN jupyter labextension install \
   @jupyter-widgets/jupyterlab-manager \
   dask-labextension
-
-# Copy Examples
-COPY examples /home/jovyan/examples
