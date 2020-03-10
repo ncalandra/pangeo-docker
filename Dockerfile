@@ -48,7 +48,8 @@ RUN python -m pip install \
   matplotlib \
   seaborn \
   zarr \
-  ipywidgets
+  ipywidgets \
+  ephem
 
 # Install jupyter lab extensions
 RUN jupyter labextension install \
