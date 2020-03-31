@@ -49,7 +49,8 @@ RUN python -m pip install \
   seaborn \
   zarr \
   ipywidgets \
-  ephem
+  ephem \
+  h5netcdf
 
 # Install jupyter lab extensions
 RUN jupyter labextension install \
