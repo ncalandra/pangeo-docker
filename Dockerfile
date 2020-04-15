@@ -30,14 +30,14 @@ RUN conda install -y -c conda-forge pynio pyngl
 # Install packages used for python development
 RUN python -m pip install \
   nbgitpuller==0.8 \
-  dask==2.11.0 \
-  distributed==2.11 \
+  dask==2.14.0 \
+  distributed==2.14 \
   dask-kubernetes==0.10.1 \
-  dask-gateway==0.6.1 \
-  dask-labextension==1.1 \
-  tornado==6.0.3 \
-  bokeh==1.4 \
-  graphviz==0.13 \
+  dask-gateway==0.7.1 \
+  dask-labextension==2.0.1 \
+  tornado==6.0.4 \
+  bokeh==2.0.1 \
+  graphviz==0.13.2 \
   xarray \
   sat-search \
   scipy \
