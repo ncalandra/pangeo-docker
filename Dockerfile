@@ -35,6 +35,7 @@ RUN python -m pip install \
   dask-kubernetes==0.10.1 \
   dask-gateway==0.7.1 \
   dask-labextension==2.0.1 \
+  tensorflow==2.1.0 \
   tornado==6.0.4 \
   bokeh==2.0.1 \
   graphviz==0.13.2 \
@@ -50,7 +51,9 @@ RUN python -m pip install \
   zarr \
   ipywidgets \
   ephem \
-  h5netcdf
+  h5netcdf \
+  scikit-learn \
+  dask-ml
 
 # Install jupyter lab extensions
 RUN jupyter labextension install \
