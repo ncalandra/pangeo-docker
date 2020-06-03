@@ -1,4 +1,4 @@
-FROM jupyterhub/singleuser
+FROM jupyterhub/singleuser:1.2
 
 # Environment Variables for rasterio and GDAL
 ENV GDAL_DISABLE_READDIR_ON_OPEN='YES'
