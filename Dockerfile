@@ -10,7 +10,8 @@ USER root
 # Add build essential for building some python libraries
 RUN apt-get update && \
   apt-get install -yq --no-install-recommends \
-    build-essential
+    build-essential \
+    ffmpeg
 
 # Configure single user jupyter lab settings
 RUN python -m pip install s3contents
