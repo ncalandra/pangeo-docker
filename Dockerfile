@@ -16,14 +16,7 @@ RUN apt-get update && \
 # Configure single user jupyter lab settings
 RUN python -m pip install s3contents
 
-RUN echo '\n\n\
-from s3contents import S3ContentsManager\n\
-import os\n\
-if "contents_manager_class" in os.environ and os.environ["contents_manager_class"] == "S3ContentsManager":\n\
-  c.NotebookApp.contents_manager_class = S3ContentsManager\n\
-  c.S3ContentsManager.bucket = os.environ["s3_bucket"]\n\
-  c.S3ContentsManager.prefix = os.environ["s3_prefix"]\n\
-' >> /home/jovyan/.jupyter/jupyter_notebook_config.py
+COPY jupyter_notebook_config.py /home/jovyan/.jupyter/jupyter_notebook_config.py
 
 # Conda Installs :(
 RUN conda install -y -c conda-forge pynio pyngl
