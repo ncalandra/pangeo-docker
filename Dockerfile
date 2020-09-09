@@ -28,6 +28,7 @@ RUN python -m pip install \
   distributed==2.22.0 \
   dask-kubernetes==0.10.1 \
   dask-gateway==0.8.0 \
+  dask-xgboost==0.1.11 \
   dask-labextension==3.0.0 \
   tensorflow==2.3.0 \
   tornado==6.0.4 \
