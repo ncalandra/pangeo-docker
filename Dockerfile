@@ -19,7 +19,7 @@ RUN python -m pip install s3contents
 COPY jupyter_notebook_config.py /home/jovyan/.jupyter/jupyter_notebook_config.py
 
 # Conda Installs :(
-RUN conda install -y -c conda-forge pynio pyngl
+RUN conda install -y -c conda-forge pynio pyngl basemap
 
 # Install packages used for python development
 RUN python -m pip install \
