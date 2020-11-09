@@ -19,21 +19,21 @@ RUN python -m pip install s3contents
 COPY jupyter_notebook_config.py /home/jovyan/.jupyter/jupyter_notebook_config.py
 
 # Conda Installs :(
-RUN conda install -y -c conda-forge pynio pyngl basemap
+RUN conda install -y -c conda-forge pynio pyngl
 
 # Install packages used for python development
 RUN python -m pip install \
   nbgitpuller==0.9.0 \
-  dask==2.22.0 \
-  distributed==2.22.0 \
-  dask-kubernetes==0.10.1 \
-  dask-gateway==0.8.0 \
+  dask==2.30.0 \
+  distributed==2.30.1 \
+  dask-kubernetes==0.11.0 \
+  dask-gateway==0.9.0 \
   dask-xgboost==0.1.11 \
   dask-labextension==3.0.0 \
-  tensorflow==2.3.0 \
-  tornado==6.0.4 \
-  bokeh==2.1.1 \
-  graphviz==0.14.1 \
+  tensorflow==2.3.1 \
+  tornado==6.1 \
+  bokeh==2.2.3 \
+  graphviz==0.14.2 \
   xarray \
   sat-search \
   scipy \
